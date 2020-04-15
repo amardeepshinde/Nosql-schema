@@ -19,7 +19,7 @@
 
 >db.user.aggregate([
    { 
-      $user{
+      $project{
        numberOfqustion: { $cond: { if: { $isArray: "$assignement" }, then: { $size: "$assignement" }, else: "NA"} }
      
 }
