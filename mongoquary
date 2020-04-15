@@ -5,9 +5,9 @@
    {
       $lookup:
        {
-         from: "user",
+         from: "model",
          localField: "model",
-         foreignField: "cource",
+         foreignField: "_id",
         
        }
 )
@@ -38,7 +38,7 @@
 >db.ansers.aggregate(
 {
 $lookup{
-           from:"ansers"
+           from:"user"
            localfield: "user"
            foreignField: _id
            }
