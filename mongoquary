@@ -1,0 +1,46 @@
+
+
+
+> db.user.aggregate(
+   {
+      $lookup:
+       {
+         from: "user",
+         localField: "model",
+         foreignField: "cource",
+        
+       }
+)
+
+
+
+
+
+
+>db.user.aggregate([
+   { 
+      $user{
+       numberOfqustion: { $cond: { if: { $isArray: "$assignement" }, then: { $size: "$assignement" }, else: "NA"} }
+     
+}
+
+  }
+])
+
+
+
+
+
+
+
+
+
+>db.ansers.aggregate(
+{
+$lookup{
+           from:"ansers"
+           localfield: "user"
+           foreignField: _id
+           }
+}
+).count()
